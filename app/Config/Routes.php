@@ -16,3 +16,15 @@ $routes->get('/activities/delete/(:num)', 'Activities::confirmDelete/$1');
 $routes->post('/activities/delete/(:num)', 'Activities::delete/$1');
 
 $routes->get('/accommodations', 'Accommodations::index');
+
+// Iniciar sesion
+
+$routes->get('/auth', 'Login::index');
+$routes->post('/auth/login', 'Login::login');
+$routes->get('/auth/loggout', 'Login::logout');
+
+// Registrar usuario
+$routes->get('/auth/register', 'User::index');
+$routes->post('/auth/store', 'User::storeUser');
+
+
