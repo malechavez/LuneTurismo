@@ -6,7 +6,7 @@ class ActivitiesModel extends Model
 {
     protected $table = 'activities'; //la base de datos
     
-    protected $allowedFields = ['name', 'category', 'location', 'available_slots', 'price', 'description', 'image1', 'image2', 'image3'];
+    protected $allowedFields = ['name', 'category', 'location', 'available_slots', 'price', 'start_date', 'end_date', 'description', 'image1', 'image2', 'image3'];
 
     //Retorna las actividades almacenadas
     public function getActivities()
@@ -21,7 +21,7 @@ class ActivitiesModel extends Model
     }
 
     //Crea nueva actividad
-    public function saveActivity($name, $category, $location,  $available_slots, $price, $description, $image1, $image2, $image3){
+    public function saveActivity($name, $category, $location,  $available_slots, $price, $start_date, $end_date, $description, $image1, $image2, $image3){
         $image1Name = null;
         $image2Name = null;
         $image3Name = null;
@@ -47,6 +47,8 @@ class ActivitiesModel extends Model
             'location' => $location,
             'available_slots' => $available_slots, 
             'price' => $price,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
             'description' => $description,
             'image1' => $image1Name,
             'image2' => $image2Name,
@@ -55,7 +57,7 @@ class ActivitiesModel extends Model
     }
 
     //modifica la actividad
-    public function updateActivity($id, $name, $category, $location,  $available_slots, $price, $description, $image1, $image2, $image3)
+    public function updateActivity($id, $name, $category, $location,  $available_slots, $price, $start_date, $end_date,  $description, $image1, $image2, $image3)
     {
         $activity = $this->find($id);
 
@@ -83,6 +85,8 @@ class ActivitiesModel extends Model
             'location' => $location,
             'available_slots' => $available_slots, 
             'price' => $price,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
             'description' => $description,
             'image1' => $image1Name,
             'image2' => $image2Name,

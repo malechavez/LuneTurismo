@@ -38,12 +38,14 @@ class Activities extends BaseController
         $location = $this->request->getPost('location');
         $available_slots = $this->request->getPost('available_slots');
         $price = $this->request->getPost('price');
+        $start_date = $this->request->getPost('start_date');
+        $end_date = $this->request->getPost('end_date');
         $description = $this->request->getPost('description');
         $image1 = $this->request->getFile('image1');
         $image2 = $this->request->getFile('image2');
         $image3 = $this->request->getFile('image3');
 
-        $this->activitiesModel->saveActivity($name, $category, $location, $available_slots, $price, $description, $image1, $image2, $image3);
+        $this->activitiesModel->saveActivity($name, $category, $location, $available_slots, $price, $start_date, $end_date, $description, $image1, $image2, $image3);
 
         return redirect()->to('/admin');
     }
@@ -56,12 +58,14 @@ class Activities extends BaseController
         $newLocation = $this->request->getPost('location');
         $newAvailable_slots = $this->request->getPost('available_slots');
         $newPrice = $this->request->getPost('price');
+        $newStart_date = $this->request->getPost('start_date');
+        $newEnd_date = $this->request->getPost('end_date');
         $newDescription = $this->request->getPost('description');
         $newImage1 = $this->request->getFile('image1');
         $newImage2 = $this->request->getFile('image2');
         $newImage3 = $this->request->getFile('image3');
 
-        $this->activitiesModel->updateActivity($id, $newName, $newCategory, $newLocation, $newAvailable_slots, $newPrice, $newDescription, $newImage1, $newImage2, $newImage3);
+        $this->activitiesModel->updateActivity($id, $newName, $newCategory, $newLocation, $newAvailable_slots, $newPrice, $newStart_date, $newEnd_date, $newDescription, $newImage1, $newImage2, $newImage3);
 
         return redirect()->to('/admin');
     }

@@ -33,7 +33,11 @@ class Login extends BaseController{
 
         if($user !== null){
             $this->setSession($user);
-            return redirect()->to('/admin');  
+            if($user['role_id'] == 1){
+                return redirect()->to('/client'); // Usuario común
+            } else if($user['role_id'] == 2){
+                return redirect()->to('/admin'); // Administrador
+            }
         }
 
         return redirect()->back()->withInput()->with('errors', 'Usuario y/o contraseña incorrectos');
@@ -45,11 +49,11 @@ class Login extends BaseController{
             'logged_in' => true,
             'userid' => $userData['id'],
             'usermail' => $userData['email'],
+            'role_id' => $userData['role_id']
         ];
 
         $this->session->set($data);
     } 
-
     //Cierra sesion
     public function logout(){
         //Si la sesion existe, la destruye

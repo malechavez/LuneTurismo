@@ -1,0 +1,123 @@
+.title{
+    display: flex;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #171A35;
+}
+.mi-tabla {
+    width: 95%;
+    margin: 25px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.mi-tabla, .encabezado, .celda {
+    border: 1.5px solid #858366;
+    border-radius: 2px;
+    padding: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.celda {
+    font-size: 20px;
+}
+
+.encabezado {
+    background-color: #171A35;
+    color: #858366;
+    font-size: 20px;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.celda{
+    color: #202253;
+    font-size: 20px;
+}
+
+.fila {
+    background-color: #B7B598;
+    color: #171A35;
+}
+
+
+.agregar {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    background-color: #171A35;
+    color: #858366;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: inline-block;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.agregar:hover{
+    background-color: #858366;
+    color: #171A35;
+}
+
+.contenedor-agregar {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.eliminar, .editar {
+    color: #E8E6C9;
+    background-color: #171A35;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 8px;
+}
+
+.eliminar:hover , .editar:hover {
+    background-color: #858366;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #171A35;
+}
+
+.tabla-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .title {
+        font-size: 28px;
+        margin: 20px 10px;
+    }
+
+    .mi-tabla {
+        width: 100%;
+        margin: 15px 0;
+        table-layout: auto;
+    }
+
+    .celda,
+    .encabezado {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .mi-tabla img {
+        max-width: 100px;
+        height: auto;
+    }
+
+    .editar,
+    .eliminar {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    .agregar {
+        font-size: 18px;
+    }
+}

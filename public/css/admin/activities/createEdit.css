@@ -1,0 +1,115 @@
+.title{
+    display: flex;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #171A35;
+}
+.formulario {
+    border: 4px solid #858366;
+    padding: 25px;
+    width: 500px;
+    border-radius: 8px;
+    margin: 30px auto;
+    background-color: #171A35;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario .form {
+    margin-bottom: 15px;
+}
+
+.formulario .form-label {
+    font-size: 18px;
+    color: #e8e6c9;
+}
+
+button {
+    background-color: #B7B598;
+    border-color: #858366 ;
+    color: #171A35;
+    font-size: 18px;
+    padding: 12px 25px;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #858366;
+    color: #202253;
+}
+
+.formulario input:not([type="file"]),
+.formulario select,
+.formulario textarea {
+    background-color: #E8E6C9;
+    color: #171A35;
+    border: 1px solid #858366;
+    border-radius: 5px;
+    padding: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.formulario textarea {
+    width: 100%;
+    min-height: 100px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+
+.formulario input[type="file"] {
+    color: #E8E6C9;
+    max-width: 100%;
+}
+
+
+.formulario input[type="file"]::file-selector-button {
+    background-color: #B7B598;
+    color: #171A35;
+    border: 1px solid #858366;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 700px) {
+    .title {
+        font-size: 26px;
+        text-align: center;
+        margin: 20px 10px;
+    }
+
+    .formulario {
+        width: auto;
+        max-width: none;
+        margin: 20px 15px;
+        padding: 20px;
+    }
+
+    .formulario .form-label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 16px;
+    }
+
+    .formulario input:not([type="file"]),
+    .formulario select,
+    .formulario textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .formulario input[type="file"] {
+        max-width: 100%;
+        font-size: 12px;
+    }
+
+    .formulario button {
+        width: 100%;
+    }
+}

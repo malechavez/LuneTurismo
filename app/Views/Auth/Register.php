@@ -1,32 +1,62 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
-</head>
-<body>
-    <main>
-        <section>
-            <div>
-                <h2>Crear usuario</h2>
-                <form method="post" action="<?= site_url('/auth/store') ?>">
-                    <input type="text" name="name" placeholder="Nombre" require><br>
-                    <input type="text" name="surname" placeholder="apellido" require><br>
-                    <input type="email" name="email" placeholder="Correo" require><br>
-                    <input type="password" name="password" placeholder="Contraseña" require><br>
-                    <input type="password" name="confirmpassword" placeholder="Repetir contraseña"><br>
-                    <button type="submit">Guardar</button>
-                </form>
+```php
+<?= $this->extend('Layouts/LayoutAuth') ?>
+
+<?= $this->section('cssExtra') ?>
+<link rel="stylesheet" href="<?= base_url('css/auth/register.css') ?>">
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+
+<section class="register-section">
+    <div class="register-card">
+
+        <h1 class="title">Crear cuenta</h1>
+        <p class="register-subtitle">Completá tus datos para registrarte en Lune.</p>
+
+        <form method="post" action="<?= site_url('/auth/store') ?>">
+
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" value="<?= old('name') ?>" required>
             </div>
-            
-            <?php if(session()->getFlashdata('errors') !== null):?>
-                <div>
-                    <?= session()->getFlashdata('errors') ?>
-                </div>   
-            <?php endif; ?>
-            
-        </section>
-    </main>
-</body>
-</html>
+
+            <div class="form-group">
+                <label for="surname">Apellido</label>
+                <input type="text" id="surname" name="surname" placeholder="Tu apellido" value="<?= old('surname') ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" value="<?= old('email') ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmpassword">Repetir contraseña</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Repetí tu contraseña" required>
+            </div>
+
+            <button type="submit">Crear cuenta</button>
+
+            <p class="login-link">
+                ¿Ya tenés una cuenta?
+                <a href="<?= site_url('/auth') ?>">Iniciar sesión</a>
+            </p>
+
+        </form>
+
+        <?php if (session()->getFlashdata('errors') !== null): ?>
+            <div class="register-errors">
+                <?= session()->getFlashdata('errors') ?>
+            </div>
+        <?php endif; ?>
+
+    </div>
+</section>
+
+<?= $this->endSection() ?>
+```

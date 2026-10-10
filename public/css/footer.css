@@ -1,0 +1,95 @@
+
+
+.site-footer {
+    background-color: #171A35;
+    color: #E8E6C9;
+    padding: 35px 7% 20px;
+    font-family: Arial, sans-serif;    
+    border-top: 6px solid #858366;
+}
+
+/* Marca: logo + nombre + frase */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-bottom: 25px;
+}
+
+.footer-brand img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.footer-logo {
+    color: #E8E6C9;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    letter-spacing: 5px;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.footer-logo:hover {
+    color: #969477;
+}
+
+.footer-brand > p {
+    color: #C9C9D3;
+    font-size: 14px;
+    margin: 0 0 0 auto;
+    letter-spacing: 0.4px;
+}
+
+/* Parte inferior */
+.footer-bottom {
+    border-top: 1px solid #424563;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.text-footer,
+.footer-tagline {
+    margin: 0;
+    font-size: 12px;
+    color: #C9C9D3;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 28px 6% 18px;
+    }
+
+    .footer-brand {
+        gap: 10px;
+    }
+
+    .footer-logo {
+        font-size: 23px;
+        letter-spacing: 3px;
+    }
+
+    .footer-brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-brand > p {
+        width: 100%;
+        margin: 5px 0 0;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}

@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
 
-<body>
+<?= $this->extend('Layouts/LayoutAdmin') ?>
 
-    <?= $this->extend('Layouts/Layout') ?>
+<?= $this->section('cssExtra') ?>
+    <link rel="stylesheet" href="<?= base_url('css/admin/dashboard.css') ?>">
+<?= $this->endSection() ?>
 
-    <?= $this->section('content') ?>
+<?= $this->section('content') ?>
+    <h1 class="title">Administrador de ofertas</h1>
+    <div class="btn-container">
+        <a class="button" href="<?= site_url('accommodations') ?>">
+            Alojamientos
+        </a>
 
-        <button>
-            <a href="<?=  site_url('accommodations') ?>">Alojamientos</a>
-        </button>
+        <a  class= "button" href="<?= site_url('activities') ?>">
+            Actividades
+        </a>
+    </div>
 
-        <button>
-            <a href="<?=  site_url('activities') ?>">Actividades</a>
-        </button>
-
-    <?= $this->endSection() ?>
-
-</body>
-</html>
+<?= $this->endSection() ?>

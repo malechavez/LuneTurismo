@@ -29,7 +29,7 @@ class User extends BaseController{
             return redirect()->back()->withInput()->with('errors', $this->validator->listErrors());
         }
 
-        $rolId = 2;
+        $rolId = 1;
         $name = $this->request->getPost('name');
         $surname = $this->request->getPost('surname');
         $email = $this->request->getPost('email');

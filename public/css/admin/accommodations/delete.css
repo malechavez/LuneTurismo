@@ -1,0 +1,42 @@
+.title{
+    display: flex;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #171A35;
+}
+
+.subtitle {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+    color: #858366;
+    margin: 0;
+}
+
+.formulario {
+    border: 3px solid #858366;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    width: 450px;
+    border-radius: 8px;
+    margin: 30px auto;
+    background-color: #171A35;
+}
+
+button {
+    background-color: #B7B598;
+    border: 1px solid #858366;
+    color: #171A35;
+    font-size: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #858366;
+    color: #171A35;
+}

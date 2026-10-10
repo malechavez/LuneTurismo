@@ -1,0 +1,114 @@
+.register-section {
+    display: flex;
+    justify-content: center;
+    padding: 35px 20px;
+}
+
+
+.register-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 35px;
+    background: #171A35;
+    border: 1px solid #858366;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.register-card .title {
+    color: #E8E6C9;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+
+.register-subtitle {
+    color: #B7B598;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 0 28px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    color: #E8E6C9;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #858366;
+    border-radius: 6px;
+    background: #E8E6C9;
+    color: #171A35;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: 2px solid #B7B598;
+    outline-offset: 2px;
+}
+
+.register-card button {
+    width: 100%;
+    padding: 12px;
+    background: #858366;
+    color: #E8E6C9;
+    border: 1px solid #B7B598;
+    border-radius: 6px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-card button:hover {
+    background: #B7B598;
+    color: #171A35;
+}
+
+.login-link {
+    margin: 22px 0 0;
+    color: #E8E6C9;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #B7B598;
+    text-decoration: underline;
+}
+
+.login-link a:hover {
+    color: #E8E6C9;
+}
+
+.register-errors {
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #858366;
+    border-radius: 6px;
+    color: #E8E6C9;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+    .register-card {
+        padding: 25px 20px;
+    }
+
+    .register-card .title {
+        font-size: 26px;
+    }
+}

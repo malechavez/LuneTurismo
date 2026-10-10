@@ -1,0 +1,54 @@
+.title {
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #171A35;
+    display: flex;
+    justify-content: center;
+}
+.btn-container{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #171A35;
+    color: #E8E6C9;
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+
+    width: 250px;
+    height: 120px;
+    border: 3px solid #858366;
+    border-radius: 12px;
+
+}
+
+.button:hover {
+    background-color: #30345D;
+    color: #858366;
+}
+
+@media screen and (max-width: 700px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .btn-container {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .button {
+        width: 180px;
+        height: 90px;
+        font-size: 16px;
+    }
+}

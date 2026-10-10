@@ -23,7 +23,7 @@ class UserModel extends Model{
     // Valida que el usuario exista y coincida la contraseña ingresada con la que esta en la base de datos
     public function validateUser($email, $password){
         
-       $user = $this->where('email', $email)->first();
+        $user = $this->where('email', $email)->first();
 
         if($user && password_verify($password, $user['password'])){
             return $user;
