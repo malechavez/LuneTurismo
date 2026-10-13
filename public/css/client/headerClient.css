@@ -48,8 +48,9 @@ html, body {
 }
 
 .navbar-nav {
-    display: flex;
-    justify-content: flex-end;
+    display: flex !important;       /* Arregla conflicto con Bootstrap */
+    flex-direction: row !important; /* Arregla conflicto con Bootstrap */
+    justify-content: flex-end ;
     flex-wrap: wrap;
     gap: 4px;
     list-style: none;
