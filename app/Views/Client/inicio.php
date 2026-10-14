@@ -99,9 +99,8 @@
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
                         </div>
                         <div class="card-footer d-flex flex-row-reverse">
-                            <a href="#">Reservar</a>
-                        </div>
-                    </div>
+                            <a href="#">Ver detalle</a>
+                        </div>                    </div>
                 </div>
                 <div class="mx-3 my-2">
                     <a href="#">Ver mas...</a>

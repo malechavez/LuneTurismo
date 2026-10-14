@@ -6,6 +6,6 @@ class Client extends BaseController
 {
     public function index()
     {
-        return view('Usuario/inicio');
+        return view('Client/inicio');
     }
 }
