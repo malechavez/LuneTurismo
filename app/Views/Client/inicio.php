@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <?= $this->extend('Layouts/LayoutUser') ?>
     <?= $this->section('content') ?>
     <main class="flex-grow-1">
@@ -22,36 +24,9 @@
         <section class="d-flex w-100 justify-content-center">
             <div class="d-flex flex-column" style="width: 60%;">
                 <div class="m-auto my-2 max-w-100">
-                    <div class="card mx-3 my-2">
-                        <img src="#" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Museo bellas artes</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer d-flex flex-row-reverse">
-                            <a href="#">Reservar</a>
-                        </div>
-                    </div>
-                    <div class="card mx-3 my-2">
-                        <img src="#" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer d-flex flex-row-reverse">
-                            <a href="#">Reservar</a>
-                        </div>
-                    </div>
-                    <div class="card mx-3 my-2">
-                        <img src="#" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        </div>
-                        <div class="card-footer d-flex flex-row-reverse">
-                            <a href="#">Reservar</a>
-                        </div>
-                    </div>
+                    <?php foreach ($activities as $u): ?>
+                        <?= view('Partials/CardActivity', ['activity' => $u]) ?>
+                    <?php endforeach; ?>    
                 </div>
                 <div class="mx-3 my-2">
                     <a href="#">Ver mas...</a>
@@ -70,48 +45,22 @@
         </section>
 
         <section class="d-flex w-100 justify-content-center">
+            <section class="d-flex w-100 justify-content-center">
             <div class="d-flex flex-column" style="width: 60%;">
-                <div class="m-auto my-2">
-                    <div class="card mx-3 my-2">
-                        <img src="#" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Museo bellas artes</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer d-flex flex-row-reverse">
-                            <a href="#">Reservar</a>
-                        </div>
-                    </div>
-                    <div class="card border-start mx-3 my-2">
-                        <img src="#" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer d-flex flex-row-reverse">
-                            <a href="#">Reservar</a>
-                        </div>
-                    </div>
-                    <div class="card border-start mx-3 my-2">
-                        <img src="#" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        </div>
-                        <div class="card-footer d-flex flex-row-reverse">
-                            <a href="#">Ver detalle</a>
-                        </div>                    </div>
+                <div class="m-auto my-2 max-w-100">
+                    <?php foreach ($accommodations as $u): ?>
+                            <?= view('Partials/CardAccommodations', ['accommodation' => $u]) ?>
+                        <?php endforeach; ?>   
                 </div>
                 <div class="mx-3 my-2">
                     <a href="#">Ver mas...</a>
                 </div>
             </div>
-
-
         </section>
 
     </main>
     <?= $this->endSection() ?>
-    
+
 </body>
+                        
 </html>
