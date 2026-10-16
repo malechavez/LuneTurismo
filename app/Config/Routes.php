@@ -3,11 +3,12 @@
 use CodeIgniter\Router\RouteCollection;
 
 /** @var RouteCollection $routes */
+$routes->get('/', 'NoUser::index');
 //ruta de inicio de cliente
 $routes->get('/client', 'Client::index');
 //ruta inicio de admin
 $routes->get('/admin', 'Admin::index');
-// ACTIVIDADES
+// ACTIVIDADES - admin
 
 $routes->get('/activities', 'Activities::index');
 $routes->get('/activities/create', 'Activities::create');
@@ -17,7 +18,7 @@ $routes->post('/activities/update/(:num)', 'Activities::update/$1');
 $routes->get('/activities/delete/(:num)', 'Activities::confirmDelete/$1');
 $routes->post('/activities/delete/(:num)', 'Activities::delete/$1');
 
-//ALOJAMIENTOS
+//ALOJAMIENTOS - admin
 $routes->get('/accommodations', 'Accommodations::index');
 $routes->get('/accommodations/create', 'Accommodations::create');
 $routes->post('/accommodations/store', 'Accommodations::store');
@@ -39,4 +40,8 @@ $routes->post('/auth/store', 'User::storeUser');
 $routes->get('/admin/users/create', 'AdminUser::index');
 $routes->post('/admin/users/store', 'AdminUser::storeUser');
 
-
+//
+$routes->get('Client/activityDetail/(:num)', 'Activities::detail/$1');
+$routes->get('Client/accommodationDetail/(:num)', 'Accommodations::detail/$1');
+$routes->get('reservations/activities/(:num)','ReservationsActivities::create/$1');
+$routes->post('reservations/activities/store','ReservationsActivities::store');

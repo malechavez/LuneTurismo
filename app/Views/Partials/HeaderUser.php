@@ -20,10 +20,10 @@
                         <a href="<?= site_url('admin') ?>">Inicio</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('activities') ?>">Actividades</a>
+                        <a href="#">Actividades</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('accommodations') ?>">Alojamientos</a>
+                        <a href="#">Alojamientos</a>
                     </li>
                     <li>
                         <a href="<?= site_url('/auth/loggout') ?>">Cerrar sesión</a>

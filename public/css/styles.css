@@ -2,17 +2,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #E8E6C9;
+    background-color: #B7B598;
     
 }
 
-/* Estilo de la imagen de cabecera en la página de inicio */
-.bg-image{
-    background: linear-gradient(rgba(0, 0, 0, 0.45), 
-    rgba(0, 0, 0, 0.45)), 
-    url('../images/obeliscoHeader.jpg') no-repeat center center;
-    background-size: cover;
-    min-height: 50vh;
-    position: relative;
-    width: 100%;
-}

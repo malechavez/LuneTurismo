@@ -81,5 +81,17 @@ class Activities extends BaseController
         $this->activitiesModel->deleteActivity($id);
 
         return redirect()->to('/admin');
+    
     }
-}
+
+    public function detail($id)
+    {
+        $data['activity'] = $this->activitiesModel->getActivity($id);
+
+        if (!$data['activity']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        return view('Client/ActivityDetail', $data);
+    }
+}   

@@ -79,4 +79,15 @@ class Accommodations extends BaseController
         $this->accommodationsModel->deleteAccommodation($id);
         return redirect()->to('/admin');
     }
+
+    public function detail($id)
+    {
+        $data['accommodation'] = $this->accommodationsModel->getAccommodation($id);
+
+        if (!$data['accommodation']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        return view('Client/AccommodationDetail', $data);
+    }
 }

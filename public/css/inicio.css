@@ -1,0 +1,65 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #E8E6C9;
+    
+}
+
+/* Estilo de la imagen de cabecera en la página de inicio */
+.act-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), 
+    rgba(0, 0, 0, 0.45)), 
+    url('../images/obeliscoHeader.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 35vh;
+    position: relative;
+    width: 100%;
+}
+
+.acc-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.45)),
+    url('../images/accommodationsHeader.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 35vh;
+    position: relative;
+    width: 100%;
+}
+
+.activity-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.accommodation-img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #171A35;
+}
+
+.card{
+    background-color: #858366;
+    border-radius: 3%;
+    border-color: #171A35;
+}
+
+.btn{
+    background-color: #171A35;
+    border-color: #171A35 ;
+    color: #858366;
+    font-size: 18px;
+    padding: 12px 25px;
+    border-radius: 6px;
+}
+
+.btn:hover{
+    background-color: #E8E6C9;
+    color: #202253;
+}
