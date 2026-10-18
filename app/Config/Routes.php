@@ -45,3 +45,5 @@ $routes->get('Client/activityDetail/(:num)', 'Activities::detail/$1');
 $routes->get('Client/accommodationDetail/(:num)', 'Accommodations::detail/$1');
 $routes->get('reservations/activities/(:num)','ReservationsActivities::create/$1');
 $routes->post('reservations/activities/store','ReservationsActivities::store');
+$routes->get('reservations/accommodatios/(:num)', 'ReservationsAccommodations::create/$1');
+$routes->post('reservations/accommodatios/store', 'ReservationsAccommodations::store');
