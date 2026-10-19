@@ -12,4 +12,8 @@ class AccommodationAvailabilityModel extends Model{
         'total',
         'stock'
         ]; 
+
+    public function getAccommodationAvailability(){
+        return $this->select('accommodation_id, fecha, stock')->findAll();
+    }
 }

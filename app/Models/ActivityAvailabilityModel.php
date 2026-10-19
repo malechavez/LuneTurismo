@@ -14,5 +14,8 @@ class ActivityAvailabilityModel extends Model
         'stock' //cupos que quedan disponibles por dia
     ];
 
-
+    public function getActivityAvailability()
+    {
+        return $this->select('activity_id, fecha, stock')->findAll();
+    }
 }

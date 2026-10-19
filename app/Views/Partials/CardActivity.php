@@ -1,4 +1,3 @@
-
 <div class="card mx-3 my-2">
     <img
         src="<?= base_url('images/activities/' . esc($activity['image1'])) ?>"
@@ -6,10 +5,23 @@
         alt="<?= esc($activity['name']) ?>">
     <div class="card-body">
         <h4 class="card-title"><?= esc($activity['name']) ?></h4>
+    
         <!-- Cartel de aviso de cupos  -->
-        <!--<div class="bg-warning" style="width: 25%;">
-            Pocos cupos disponibles
-        </div>-->
+        <?php if ($stockMinimo <= 10 && $stockMinimo > 0): ?>
+            <div class="bg-warning rounded-3 border border-black border-2" style="width: 45%;">
+                <div class="p-1">
+                    <small class="fw-medium">Pocos cupos disponibles</small>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($stockMinimo == 0): ?>
+            <div class="bg-danger rounded-3 border border-black border-2" style="width: 45%;">
+                <div class="p-1">
+                    <small class="fw-medium">Sin cupos disponibles</small>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <small class="fg-3">
             <?= esc($activity['category']) ?>
