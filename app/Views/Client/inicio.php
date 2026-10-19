@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
 
     <?= $this->extend('Layouts/LayoutUser') ?>
     <?= $this->section('content') ?>
-    <main class="flex-grow-1">
+    <section class="flex-grow-1">
         <!--------------------            Imagen de presentacion ----------------------->
         <section class="act-image d-flex align-items-center justify-content-center text-center text-white">
             <div class="container">
@@ -57,9 +47,5 @@
             </div>
         </section>
 
-    </main>
+    </section>
     <?= $this->endSection() ?>
-
-</body>
-                        
-</html>

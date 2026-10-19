@@ -3,6 +3,8 @@
 namespace App\Controllers;
 use App\Models\AccommodatiosModel;
 use App\Models\ActivitiesModel;
+use App\Models\ReservationsActivitiesModel;
+use App\Models\ReservationsAccommodationsModel;
 
 class Client extends BaseController
 {
@@ -24,5 +26,26 @@ class Client extends BaseController
         $data['accommodations'] = $this->accommodationsModel->getAccommodations();
 
         return view('Client/inicio', $data);
+    }
+
+    public function activities(){
+        $data['activities'] = $this->activitiesModel->getActivities();
+
+        return view('Client/activities', $data);
+    }
+    
+    public function accommodations(){
+        $data['accommodations'] = $this->accommodationsModel->getAccommodations();
+
+        return view('Client/accommodations', $data);
+    }
+    
+    public function myReservations(){
+        $userId = session()->get('userid');
+        $reservationsActivitiesModel = new ReservationsActivitiesModel();
+        $reservationsAccommodationsModel = new ReservationsAccommodationsModel();
+        $myActivities = $reservationsActivitiesModel->getReservationByUser($userId);
+        $myAccommodations = $reservationsAccommodationsModel->getReservationByUser($userId);
+        return view('Client/MisReservas', ['activities' => $myActivities, 'accommodations' => $myAccommodations]);
     }
 }

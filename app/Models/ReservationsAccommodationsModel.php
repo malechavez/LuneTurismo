@@ -19,5 +19,12 @@ class ReservationsAccommodationsModel extends Model{
         'fecha_reserva'
         ]; // Campos de la tabla
 
-}
+    public function getReservationByUser($userId)
+    {
+        return $this->select('reservations_accommodations.*, accommodations.name AS accommodation_name')
+                    ->join('accommodations', 'accommodations.id = reservations_accommodations.accommodation_id')
+                    ->where('user_id', $userId)
+                    ->findAll();
+    }
 
+}

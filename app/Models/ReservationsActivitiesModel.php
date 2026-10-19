@@ -18,5 +18,11 @@ class ReservationsActivitiesModel extends Model
         'estado'
     ];
 
-    
+    public function getReservationByUser($userId)
+    {
+        return $this->select('reservations_activities.*, activities.name AS activity_name')
+                    ->join('activities', 'activities.id = reservations_activities.activity_id')
+                    ->where('user_id', $userId)
+                    ->findAll();
+    }
 }

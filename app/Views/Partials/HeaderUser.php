@@ -17,13 +17,16 @@
             <div class="container-nav">
                 <ul class="navbar-nav">
                     <li>
-                        <a href="<?= site_url('admin') ?>">Inicio</a>
+                        <a href="<?= site_url('client') ?>">Inicio</a>
                     </li>
                     <li>
-                        <a href="#">Actividades</a>
+                        <a href="<?= site_url('client/activities') ?>">Actividades</a>
                     </li>
                     <li>
-                        <a href="#">Alojamientos</a>
+                        <a href="<?= site_url('client/accommodations') ?>">Alojamientos</a>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('client/misReservas') ?>">Mis reservas</a>
                     </li>
                     <li>
                         <a href="<?= site_url('/auth/loggout') ?>">Cerrar sesión</a>

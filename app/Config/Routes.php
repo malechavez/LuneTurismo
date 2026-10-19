@@ -47,3 +47,8 @@ $routes->get('reservations/activities/(:num)','ReservationsActivities::create/$1
 $routes->post('reservations/activities/store','ReservationsActivities::store');
 $routes->get('reservations/accommodatios/(:num)', 'ReservationsAccommodations::create/$1');
 $routes->post('reservations/accommodatios/store', 'ReservationsAccommodations::store');
+$routes->get('/client/misReservas', 'Client::myReservations');
+
+
+$routes->get('/client/activities', 'Client::activities');
+$routes->get('/client/accommodations', 'Client::accommodations');
