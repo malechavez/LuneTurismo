@@ -49,7 +49,7 @@
                         <td class="celda"><?= $u['state']?></td>
                         <td class="celda">
                             <a class = "editar" href="<?=  site_url('admin/activities/edit/'. $u['id']) ?>">Editar</a>
-                            <a class= "eliminar" href="<?= site_url('admin/activities/delete/' .$u['id']) ?>">Eliminar</a>
+                            <a class= "eliminar" href="<?= site_url('admin/activities/delete/' .$u['id']) ?>">Deshabilitar</a>
                             <a class="editar" href="<?=  site_url('admin/activities/activate/'. $u['id']) ?>">Habilitar</a>
                         </td>
                     </tr>

@@ -17,7 +17,7 @@
                     $activityId = $u['id'];
                     $stockMinimo = $disponibilidadPorActividad[$activityId]['stock_minimo_actividad'] ?? null;
                 ?>
-                 <?php if($u['state'] === 'activo'): ?>
+                <?php if($u['state'] === 'activo'): ?>
                 <div class="col-12 col-md-4">
                     
                         <?= view('Partials/CardActivity', [

@@ -66,13 +66,16 @@ class AccommodatiosModel extends Model
 
         //Gestion de la disponibilidad 
         $availabilityAccommodationModel = new AccommodationAvailabilityModel();
-
-        $availabilityAccommodationModel->insert([
-            'accommodation_id' => $accommodationId,
-            'fecha' => $fecha->toDateString(),
-            'total' => $available_slots,
-            'stock' => $available_slots
-        ]);
+        $fecha = Time::now();
+        for ($i = 0; $i < 365; $i++) {
+            $availabilityAccommodationModel->insert([
+                'accommodation_id' => $accommodationId,
+                'fecha' => $fecha->toDateString(),
+                'total' => $available_slots,
+                'stock' => $available_slots
+            ]);
+            $fecha = $fecha->addDays(1);
+        }
     }
 
     //modifica el alojamiento  
@@ -122,7 +125,7 @@ class AccommodatiosModel extends Model
         foreach ($disponibilidades as $disponibilidad) {
             
             if ($disponibilidad) {
-               $ocupados = $disponibilidad['total'] - $disponibilidad['stock'];
+                $ocupados = $disponibilidad['total'] - $disponibilidad['stock'];
 
                 if ($available_slots < $ocupados) {
                     return redirect()->back()

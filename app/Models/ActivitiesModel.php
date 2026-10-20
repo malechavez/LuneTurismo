@@ -178,8 +178,6 @@ class ActivitiesModel extends Model
                 ]);
             }
         }
-
-        //pendiente: gestionar las fechas que se eliminan. sin eliminar disponibilidades que tengan reservas.
     }
 
 

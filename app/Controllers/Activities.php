@@ -104,6 +104,6 @@ class Activities extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
-        return view('cient/ActivityDetail', $data);
+        return view('client/ActivityDetail', $data);
     }
 }   

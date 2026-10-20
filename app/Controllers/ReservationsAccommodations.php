@@ -68,11 +68,19 @@ class ReservationsAccommodations extends BaseController
 
         $accommodationAvailabilityModel = new AccommodationAvailabilityModel();
 
-        $accommodationAvailabilityModel->where('accommodation_id', $accommodationId)->where('stock >=', $cantidad)->set('stock', 'stock - ' . $cantidad, false)->update();
 
-        if ($db->affectedRows() !== 1) {
-            $db->transRollback();
-            return redirect()->back()->withInput()->with('error', 'No hay suficientes lugares disponibles.');
+        $fecha = $fechaCheckin;
+
+        for ($i = 0; $i < $noches; $i++) {
+            $accommodationAvailabilityModel->resetQuery();
+            $accommodationAvailabilityModel->where('accommodation_id', $accommodationId)->where('fecha', $fecha)->where('stock >=', 1)->set('stock', 'stock - 1', false)->update();
+
+            if ($db->affectedRows() !== 1) {
+                $db->transRollback();
+                return redirect()->back()->withInput()->with('error', 'No hay disponibilidad para todas las noches seleccionadas.');
+            }
+
+            $fecha = Time::parse($fecha)->addDays(1)->toDateString();
         }
 
         $reservationsAccommodationsModel = new ReservationsAccommodationsModel();
@@ -82,7 +90,7 @@ class ReservationsAccommodations extends BaseController
             'accommodation_id' => $accommodationId,
             'fecha_checkin' => $fechaCheckin,
             'fecha_checkout' => $fechaCheckout,
-            'cantidad_unidades' => $accommodation['available_slots'],
+            'cantidad_unidades' => 1,
             'cantidad_personas' => $cantidad,
             'total' => $total,
             'estado' => 'Confirmada',

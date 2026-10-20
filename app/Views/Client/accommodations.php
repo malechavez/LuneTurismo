@@ -18,7 +18,7 @@
                     $accommodationId = $u['id'];
                     $stockMinimo = $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] ?? null;
                 ?>
-                 <?php if ($u['state'] === 'activo'): ?>
+                <?php if ($u['state'] === 'activo'): ?>
                 <div class="col-12 col-md-4">
                     <?= view('Partials/CardAccommodations', [
                         'accommodation' => $u,
