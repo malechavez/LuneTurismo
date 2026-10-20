@@ -6,14 +6,14 @@
     <?= $this->endSection() ?>
     <?= $this->section('content') ?>
 
-        <h1 class="title">Eliminar actividad</h1>
+        <h1 class="title">Deshabilitar actividad</h1>
         <div class="formulario">
-            <h3 class="subtitle">¿Estás seguro de querer eliminar esta actividad?</h3>
-            <form method="get" action="<?= site_url('admin') ?>">
+            <h3 class="subtitle">¿Estás seguro de querer deshabilitar esta actividad?</h3>
+            <form method="get" action="<?= site_url('admin/home') ?>">
                 <button type="submit">Cancelar</button>
             </form>
-            <form method="post" action="<?= site_url('activities/delete/' . $activity['id']) ?>">
-                <button type="submit">Eliminar</button>
+            <form method="post" action="<?= site_url('admin/activities/delete/' . $activity['id']) ?>">
+                <button type="submit">Deshabilitar</button>
             </form>
 
         </div>

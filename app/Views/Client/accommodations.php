@@ -14,12 +14,19 @@
         <section class="container my-4">
             <div class="row g-4">
                 <?php foreach ($accommodations as $u): ?>
-                    <div class="col-12 col-md-4">
-                        <?= view('Partials/CardAccommodations', [
-                            'accommodation' => $u,
-                            'logueado' => true
-                        ]) ?>
-                    </div>
+                <?php
+                    $accommodationId = $u['id'];
+                    $stockMinimo = $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] ?? null;
+                ?>
+                 <?php if ($u['state'] === 'activo'): ?>
+                <div class="col-12 col-md-4">
+                    <?= view('Partials/CardAccommodations', [
+                        'accommodation' => $u,
+                        'stockMinimo' => $stockMinimo,
+                        'logueado' => true
+                    ]) ?>
+                </div>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </div>
         </section>

@@ -7,7 +7,7 @@ class ActivitiesModel extends Model
 {
     protected $table = 'activities'; //la base de datos
     
-    protected $allowedFields = ['name', 'category', 'location', 'available_slots', 'price', 'start_date', 'end_date', 'description', 'image1', 'image2', 'image3'];
+    protected $allowedFields = ['name', 'category', 'location', 'available_slots', 'price', 'start_date', 'end_date', 'description', 'image1', 'image2', 'image3', 'state'];
 
     //Retorna las actividades almacenadas
     public function getActivities()
@@ -60,7 +60,8 @@ class ActivitiesModel extends Model
             'description' => $description,
             'image1' => $image1Name,
             'image2' => $image2Name,
-            'image3' => $image3Name
+            'image3' => $image3Name,
+            'state' => 'activo'
         ]);
 
         $activityId = $this->getInsertID();
@@ -182,9 +183,15 @@ class ActivitiesModel extends Model
     }
 
 
-    //funcion para eliminar una actividad
+    //funcion para deshabilitar una actividad
     public function deleteActivity($id)
     {
-        $this->delete($id);
+        $this->update($id, ['state' => 'inactivo']);
+    }
+
+    //funcion para habilitar una actividad
+    public function activateActivity($id)
+    {
+        $this->update($id, ['state' => 'activo']);
     }
 }

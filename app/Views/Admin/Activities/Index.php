@@ -21,6 +21,7 @@
                     <th class="encabezado">Fecha de finalizacion</th>
                     <th class="encabezado">Descripcion</th>
                     <th class="encabezado">Imagenes</th>
+                    <th class="encabezado">Estado</th>
                     <th class="encabezado">Acciones</th>
                 </tr>
                 <?php foreach ($activities as $u): ?>
@@ -45,15 +46,17 @@
                                 <img src="<?= base_url('images/activities/' . $u['image3']) ?>" width="150">
                             <?php endif; ?>
                         </td>
+                        <td class="celda"><?= $u['state']?></td>
                         <td class="celda">
-                            <a class = "editar" href="<?=  site_url('/activities/edit/'. $u['id']) ?>">Editar</a>
-                            <a class= "eliminar" href="<?= site_url('/activities/delete/' .$u['id']) ?>">Eliminar</a>
+                            <a class = "editar" href="<?=  site_url('admin/activities/edit/'. $u['id']) ?>">Editar</a>
+                            <a class= "eliminar" href="<?= site_url('admin/activities/delete/' .$u['id']) ?>">Eliminar</a>
+                            <a class="editar" href="<?=  site_url('admin/activities/activate/'. $u['id']) ?>">Habilitar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
         </div>
         <div class="contenedor-agregar">
-                <a class="agregar" href="<?= site_url('/activities/create') ?>">Agregar actividad</a>
+                <a class="agregar" href="<?= site_url('admin/activities/create') ?>">Agregar actividad</a>
         </div>
     <?= $this->endSection() ?>

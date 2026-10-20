@@ -17,19 +17,22 @@
             <div class="container-nav">
                 <ul class="navbar-nav">
                     <li>
-                        <a href="<?= site_url('admin') ?>">Inicio</a>
+                        <a href="<?= site_url('admin/home') ?>">Inicio</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('activities') ?>">Actividades</a>
+                        <a href="<?= site_url('admin/activities') ?>">Actividades</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('accommodations') ?>">Alojamientos</a>
+                        <a href="<?= site_url('admin/accommodations') ?>">Alojamientos</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('/auth/loggout') ?>">Cerrar sesión</a>
+                        <a href="<?= site_url('admin/users/list') ?>">Lista de usuarios</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('/admin/users/create') ?>">Nuevo admin</a>
+                        <a href="<?= site_url('admin/auth/loggout') ?>">Cerrar sesión</a>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('admin/users/create') ?>">Nuevo admin</a>
                     </li>
                 </ul>
             </div>

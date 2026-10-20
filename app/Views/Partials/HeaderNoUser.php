@@ -17,7 +17,7 @@
             <div class="container-nav">
                 <ul class="navbar-nav">
                     <li>
-                        <a href="<?= site_url('admin') ?>">Inicio</a>
+                        <a href="<?= site_url('/') ?>">Inicio</a>
                     </li>
                     <li>
                         <a href="<?= site_url('auth') ?>">Actividades</a>

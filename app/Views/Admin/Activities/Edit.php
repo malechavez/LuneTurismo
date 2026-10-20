@@ -8,7 +8,7 @@
     <?= $this->section('content') ?>
         <h1 class="title">Editando actividad <?=  $activity['id']?></h1>
         <div class="formulario">
-            <form method="post" action="<?= site_url('/activities/update/' . $activity['id']) ?>">
+            <form method="post" action="<?= site_url('admin//activities/update/' . $activity['id']) ?>">
 
                 <div class="form">
                     <label class="form-label">Nombre:</label>

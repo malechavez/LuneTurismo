@@ -47,7 +47,7 @@ class Accommodations extends BaseController
 
         $this->accommodationsModel->saveAccommodation($name, $category, $location, $available_slots, $people, $price, $description, $image1, $image2, $image3);
 
-        return redirect()->to('/admin');
+        return redirect()->to('admin/home');
     }
 
     //actualiza
@@ -64,7 +64,7 @@ class Accommodations extends BaseController
         $newImage3 = $this->request->getFile('image3');
 
         $this->accommodationsModel->updateAccommodation($id, $newName, $newCategory, $newLocation, $newAvailable_slots, $newPeople, $newPrice, $newDescription, $newImage1, $newImage2, $newImage3);
-        return redirect()->to('/admin');
+        return redirect()->to('admin/home');
 
     }
 
@@ -77,7 +77,19 @@ class Accommodations extends BaseController
     public function delete($id)
     {
         $this->accommodationsModel->deleteAccommodation($id);
-        return redirect()->to('/admin');
+        return redirect()->to('admin/home');
+    }
+
+    public function confirmActivate($id)
+    {
+        $data['accommodation'] = $this->accommodationsModel->getAccommodation($id);
+        return view('Admin/Accommodations/Enable', $data);
+    }
+
+    public function activate($id)
+    {
+        $this->accommodationsModel->activateAccommodation($id);
+        return redirect()->to('admin/home');
     }
 
     public function detail($id)
@@ -88,6 +100,6 @@ class Accommodations extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
-        return view('Client/AccommodationDetail', $data);
+        return view('client/AccommodationDetail', $data);
     }
 }

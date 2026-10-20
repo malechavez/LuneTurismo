@@ -24,12 +24,20 @@
         <section class="container my-4">
             <div class="row g-4">
                 <?php foreach ($activities as $u): ?>
-                    <div class="col-12 col-md-4">
-                        <?= view('Partials/CardActivity', [
-                            'activity' => $u,
-                            'logueado' => false
-                        ]) ?>
-                    </div>
+                    <?php
+                    $activityId = $u['id'];
+                    $stockMinimo = $disponibilidadPorActividad[$activityId]['stock_minimo_actividad'] ?? null;
+                    ?>
+                    <?php if ($u['state'] === 'activo'): ?>
+                        <div class="col-12 col-md-4">
+
+                            <?= view('Partials/CardActivity', [
+                                'activity' => $u,
+                                'stockMinimo' => $stockMinimo,
+                                'logueado' => true
+                            ]) ?>
+                        </div>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </div>
         </section>
@@ -46,12 +54,19 @@
         <section class="container my-4">
             <div class="row g-4">
                 <?php foreach ($accommodations as $u): ?>
+                    <?php
+                    $accommodationId = $u['id'];
+                    $stockMinimo = $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] ?? null;
+                    ?>
+                    <?php if ($u['state'] === 'activo'): ?>
                     <div class="col-12 col-md-4">
                         <?= view('Partials/CardAccommodations', [
                             'accommodation' => $u,
-                            'logueado' => false
+                            'logueado' => false,
+                            'stockMinimo' => $stockMinimo
                         ]) ?>
                     </div>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </div>
         </section>
@@ -60,5 +75,5 @@
     <?= $this->endSection() ?>
 
 </body>
-                        
+
 </html>

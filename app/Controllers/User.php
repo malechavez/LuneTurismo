@@ -41,4 +41,10 @@ class User extends BaseController{
         
         return redirect()->to('/auth');
     }
+
+    public function list(){
+        $data['users'] = $this->userModel->getUsers();
+
+        return view('Admin/Users', $data);
+    }
 }

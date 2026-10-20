@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout</title>
+    <title>Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url('css/footer.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/styles.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/admin/headerAdmin.css') ?>">
     <?= $this->renderSection('cssExtra') ?>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?= $this->include('Partials/HeaderAdmin') ?>
-    <?= $this->renderSection('content') ?>
+    <main class="flex-grow-1">
+        <?= $this->renderSection('content') ?>
+    </main>
     <?= $this->include('Partials/Footer') ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

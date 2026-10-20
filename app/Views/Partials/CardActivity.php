@@ -34,7 +34,7 @@
     </div>
     <div class="card-footer d-flex justify-content-end">
         <?php if ($logueado): ?>
-            <a class="btn" href="<?= site_url('Client/activityDetail/' . $activity['id']) ?>">
+            <a class="btn" href="<?= site_url('client/activityDetail/' . $activity['id']) ?>">
                 Ver más detalle
             </a>
         <?php else: ?>

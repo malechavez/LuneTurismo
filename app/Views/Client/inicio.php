@@ -17,13 +17,16 @@
                     $activityId = $u['id'];
                     $stockMinimo = $disponibilidadPorActividad[$activityId]['stock_minimo_actividad'] ?? null;
                 ?>
+                <?php if($u['state'] === 'activo'): ?>
                 <div class="col-12 col-md-4">
-                    <?= view('Partials/CardActivity', [
-                        'activity' => $u,
-                        'stockMinimo' => $stockMinimo,
-                        'logueado' => true
-                    ]) ?>
+                    
+                        <?= view('Partials/CardActivity', [
+                            'activity' => $u,
+                            'stockMinimo' => $stockMinimo,
+                            'logueado' => true
+                        ]) ?>
                 </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
     </section>
@@ -45,6 +48,7 @@
                     $accommodationId = $u['id'];
                     $stockMinimo = $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] ?? null;
                 ?>
+                <?php if ($u['state'] === 'activo'): ?>
                 <div class="col-12 col-md-4">
                     <?= view('Partials/CardAccommodations', [
                         'accommodation' => $u,
@@ -52,6 +56,7 @@
                         'logueado' => true
                     ]) ?>
                 </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
     </section>

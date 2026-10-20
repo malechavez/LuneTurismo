@@ -4,7 +4,7 @@
 
 <main class="flex-grow-1 container my-5">
 
-    <a href="<?= site_url('client') ?>" class="btn btn-outline-secondary mb-4">
+    <a href="<?= site_url('client/home') ?>" class="btn btn-outline-secondary mb-4">
         ← Volver a actividades
     </a>
 
@@ -54,7 +54,7 @@
 
             <div class="text-end mt-4">
                 <a
-                    href="<?= site_url('reservations/activities/' . $activity['id']) ?>"
+                    href="<?= site_url('client/reservations/activities/' . $activity['id']) ?>"
                     class="btn btn-primary"
                 >
                     Reservar

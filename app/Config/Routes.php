@@ -3,29 +3,8 @@
 use CodeIgniter\Router\RouteCollection;
 
 /** @var RouteCollection $routes */
+
 $routes->get('/', 'NoUser::index');
-//ruta de inicio de cliente
-$routes->get('/client', 'Client::index');
-//ruta inicio de admin
-$routes->get('/admin', 'Admin::index');
-// ACTIVIDADES - admin
-
-$routes->get('/activities', 'Activities::index');
-$routes->get('/activities/create', 'Activities::create');
-$routes->post('/activities/store', 'Activities::store');
-$routes->get('/activities/edit/(:num)', 'Activities::edit/$1');
-$routes->post('/activities/update/(:num)', 'Activities::update/$1');
-$routes->get('/activities/delete/(:num)', 'Activities::confirmDelete/$1');
-$routes->post('/activities/delete/(:num)', 'Activities::delete/$1');
-
-//ALOJAMIENTOS - admin
-$routes->get('/accommodations', 'Accommodations::index');
-$routes->get('/accommodations/create', 'Accommodations::create');
-$routes->post('/accommodations/store', 'Accommodations::store');
-$routes->get('/accommodations/edit/(:num)', 'Accommodations::edit/$1');
-$routes->post('/accommodations/update/(:num)', 'Accommodations::update/$1');
-$routes->get('/accommodations/delete/(:num)', 'Accommodations::confirmDelete/$1');
-$routes->post('/accommodations/delete/(:num)', 'Accommodations::delete/$1');
 
 // Iniciar sesion
 $routes->get('/auth', 'Login::index');
@@ -36,19 +15,49 @@ $routes->get('/auth/loggout', 'Login::logout');
 $routes->get('/auth/register', 'User::index');
 $routes->post('/auth/store', 'User::storeUser');
 
-// Registrar administrador
-$routes->get('/admin/users/create', 'AdminUser::index');
-$routes->post('/admin/users/store', 'AdminUser::storeUser');
+//reservaciones
+$routes->group('/client', ['filter' => 'authUser'], function ($routes) {
+    $routes->get('home', 'Client::index');
+    $routes->get('activityDetail/(:num)', 'Activities::detail/$1');
+    $routes->get('accommodationDetail/(:num)', 'Accommodations::detail/$1');
+    $routes->get('reservations/activities/(:num)', 'ReservationsActivities::create/$1');
+    $routes->get('reservations/accommodatios/(:num)', 'ReservationsAccommodations::create/$1');
+    $routes->get('misReservas', 'Client::myReservations');
+    $routes->get('activities', 'Client::activities');
+    $routes->get('accommodations', 'Client::accommodations');
 
-//
-$routes->get('Client/activityDetail/(:num)', 'Activities::detail/$1');
-$routes->get('Client/accommodationDetail/(:num)', 'Accommodations::detail/$1');
-$routes->get('reservations/activities/(:num)','ReservationsActivities::create/$1');
-$routes->post('reservations/activities/store','ReservationsActivities::store');
-$routes->get('reservations/accommodatios/(:num)', 'ReservationsAccommodations::create/$1');
-$routes->post('reservations/accommodatios/store', 'ReservationsAccommodations::store');
-$routes->get('/client/misReservas', 'Client::myReservations');
+    $routes->post('reservations/activities/store', 'ReservationsActivities::store');
+    $routes->post('reservations/accommodatios/store', 'ReservationsAccommodations::store');
+    
+});
 
 
-$routes->get('/client/activities', 'Client::activities');
-$routes->get('/client/accommodations', 'Client::accommodations');
+$routes->group('/admin', ['filter' => 'authAdmin'], function ($routes) {
+    $routes->get('home', 'Admin::index');
+    $routes->get('accommodations', 'Accommodations::index');
+    $routes->get('accommodations/create', 'Accommodations::create');
+    $routes->get('accommodations/edit/(:num)', 'Accommodations::edit/$1');
+    $routes->get('accommodations/delete/(:num)', 'Accommodations::confirmDelete/$1');
+    $routes->get('accommodations/activate/(:num)', 'Accommodations::confirmActivate/$1');
+    $routes->get('activities', 'Activities::index');
+    $routes->get('activities/create', 'Activities::create');
+    $routes->get('activities/edit/(:num)', 'Activities::edit/$1');
+    $routes->get('activities/delete/(:num)', 'Activities::confirmDelete/$1');
+    $routes->get('activities/activate/(:num)', 'Activities::confirmActivate/$1');
+    $routes->get('auth/loggout', 'Login::logout');
+    
+    $routes->get('users/create', 'AdminUser::index');
+    $routes->get('users/list', 'User::list');
+
+    $routes->post('activities/store', 'Activities::store');
+    $routes->post('activities/delete/(:num)', 'Activities::delete/$1');
+    $routes->post('activities/update/(:num)', 'Activities::update/$1');
+    $routes->post('activities/activate/(:num)', 'Activities::activate/$1');
+    $routes->post('accommodations/store', 'Accommodations::store');
+    $routes->post('accommodations/update/(:num)', 'Accommodations::update/$1');
+    $routes->post('accommodations/delete/(:num)', 'Accommodations::delete/$1');
+    $routes->post('accommodations/activate/(:num)', 'Accommodations::activate/$1');
+    
+
+    $routes->post('users/store', 'AdminUser::storeUser');
+});

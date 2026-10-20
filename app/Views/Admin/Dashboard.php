@@ -8,11 +8,11 @@
 <?= $this->section('content') ?>
     <h1 class="title">Administrador de ofertas</h1>
     <div class="btn-container">
-        <a class="button" href="<?= site_url('accommodations') ?>">
+        <a class="button" href="<?= site_url('admin/accommodations') ?>">
             Alojamientos
         </a>
 
-        <a  class= "button" href="<?= site_url('activities') ?>">
+        <a  class= "button" href="<?= site_url('admin/activities') ?>">
             Actividades
         </a>
     </div>

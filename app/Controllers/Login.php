@@ -23,7 +23,7 @@ class Login extends BaseController{
         ];
 
         if(!$this->validate($rules)){
-            return redirect()->back()->withInput()->with('errors', $this->validator->listErrors());
+            return redirect()->back()->withInput()->with('errors', 'Se requieren todos los campos');
         }
 
         $email = $this->request->getPost('email');
@@ -34,9 +34,9 @@ class Login extends BaseController{
         if($user !== null){
             $this->setSession($user);
             if($user['role_id'] == 1){
-                return redirect()->to('/client'); // Usuario común
+                return redirect()->to('client/home'); // Usuario común
             } else if($user['role_id'] == 2){
-                return redirect()->to('/admin'); // Administrador
+                return redirect()->to('admin/home'); // Administrador
             }
         }
 

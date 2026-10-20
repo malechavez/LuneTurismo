@@ -40,6 +40,6 @@ class AdminUser extends BaseController {
 
         $this->userModel->saveUser($rolId, $name, $surname, $email, $password);
 
-        return redirect()->to('/admin');
+        return redirect()->to('admin/home');
     }
 }

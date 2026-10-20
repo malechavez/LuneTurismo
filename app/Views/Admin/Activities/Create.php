@@ -6,7 +6,7 @@
     <?= $this->section('content') ?>
         <h1 class="title">Crear una nueva actividad</h1>
         <div class="formulario">
-            <form method="post" action="<?= site_url('/activities/store') ?>" enctype="multipart/form-data">
+            <form method="post" action="<?= site_url('admin//activities/store') ?>" enctype="multipart/form-data">
                 <div class="form">
                     <label class="form-label">Nombre:</label>
                     <input type="text" name="name" required><br>

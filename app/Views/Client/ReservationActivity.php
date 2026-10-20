@@ -4,7 +4,7 @@
 
 <main class="container my-5">
 
-    <a href="<?= site_url('Client/activityDetail/' . $activity['id']) ?>"
+    <a href="<?= site_url('client/activityDetail/' . $activity['id']) ?>"
         class="btn btn-outline-secondary mb-4">
         ← Volver al detalle
     </a>
@@ -23,7 +23,7 @@
                     <?= session()->getFlashdata('error') ?>
                 </div>
             <?php endif; ?>
-            <form action="<?= site_url('reservations/activities/store') ?>"method="post">
+            <form action="<?= site_url('client/reservations/activities/store') ?>"method="post">
                 <?= csrf_field() ?>
                 <input type="hidden" name="activity_id" value="<?= esc($activity['id']) ?>">
                 <div class="mb-3">

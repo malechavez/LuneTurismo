@@ -33,14 +33,8 @@ class UserModel extends Model{
     }
 
     // Acualizar contraseña
-    /*public function saveUser($rolId, $name, $surname, $email, $password, $createAt){
-        $this->save([
-            'rol_id' => $rolId, 
-            'name' => $name, 
-            'surname' => $surname, 
-            'email' => $email, 
-            'password' => $password, 
-            'create_at' => $createAt, 
-        ]);
-    }*/
+    public function getUsers(){
+        return $this->select('id, name, surname, email, role_id, created_at, updated_at')->findAll();
+        
+    }
 }

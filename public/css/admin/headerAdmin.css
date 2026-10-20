@@ -48,7 +48,8 @@ html, body {
 }
 
 .navbar-nav {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
     justify-content: flex-end;
     flex-wrap: wrap;
     gap: 4px;

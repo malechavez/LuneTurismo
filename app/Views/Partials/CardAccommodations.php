@@ -32,7 +32,7 @@
     </div>
     <div class="card-footer d-flex justify-content-end">
         <?php if ($logueado): ?>
-            <a class="btn" href="<?= site_url('Client/accommodationDetail/' . $accommodation['id']) ?>">
+            <a class="btn" href="<?= site_url('client/accommodationDetail/' . $accommodation['id']) ?>">
                 Ver más detalle
             </a>
         <?php else: ?>

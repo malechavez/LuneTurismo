@@ -10,7 +10,7 @@ use CodeIgniter\I18n\Time;
 class AccommodatiosModel extends Model
 {
     protected $table = 'accommodations';
-    protected $allowedFields = ['name', 'category', 'location', 'available_slots', 'people', 'price', 'description', 'image1', 'image2', 'image3'];
+    protected $allowedFields = ['name', 'category', 'location', 'available_slots', 'people', 'price', 'description', 'image1', 'image2', 'image3', 'state'];
 
     //Retorna los alojamientos
     public function getAccommodations()
@@ -56,7 +56,8 @@ class AccommodatiosModel extends Model
             'description' => $description,
             'image1' => $image1Name,
             'image2' => $image2Name,
-            'image3' => $image3Name
+            'image3' => $image3Name,
+            'state' => 'activo'
         ]);
 
 
@@ -146,9 +147,15 @@ class AccommodatiosModel extends Model
         }
     }
 
-    //elimina 
+    //deshabilita el alojamiento
     public function deleteAccommodation($id)
     {
-        $this->delete($id);
+        $this->update($id, ['state' => 'inactivo']);
+    }
+
+    //habilita el alojamiento
+    public function activateAccommodation($id)
+    {
+        $this->update($id, ['state' => 'activo']);
     }
 }

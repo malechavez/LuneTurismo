@@ -47,7 +47,7 @@ class Activities extends BaseController
 
         $this->activitiesModel->saveActivity($name, $category, $location, $available_slots, $price, $start_date, $end_date, $description, $image1, $image2, $image3);
 
-        return redirect()->to('/admin');
+        return redirect()->to('admin/home');
     }
 
     //procesa form de edicion y actualiza
@@ -67,7 +67,7 @@ class Activities extends BaseController
 
         $this->activitiesModel->updateActivity($id, $newName, $newCategory, $newLocation, $newAvailable_slots, $newPrice, $newStart_date, $newEnd_date, $newDescription, $newImage1, $newImage2, $newImage3);
 
-        return redirect()->to('/admin');
+        return redirect()->to('admin/home');
     }
 
     public function confirmDelete($id)
@@ -75,12 +75,24 @@ class Activities extends BaseController
         $data['activity'] = $this->activitiesModel->getActivity($id);
         return view('Admin/Activities/Delete', $data);
     }
-    
+
+    public function confirmActivate($id)
+    {
+        $data['activity'] = $this->activitiesModel->getActivity($id);
+        return view('Admin/Activities/Enable', $data);
+    }
+
+    public function activate($id)
+    {
+        $this->activitiesModel->activateActivity($id);
+        return redirect()->to('admin/home');
+    }
+
     public function delete($id)
     {
         $this->activitiesModel->deleteActivity($id);
 
-        return redirect()->to('/admin');
+        return redirect()->to('admin/home');
     
     }
 
@@ -92,6 +104,6 @@ class Activities extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
-        return view('Client/ActivityDetail', $data);
+        return view('cient/ActivityDetail', $data);
     }
 }   

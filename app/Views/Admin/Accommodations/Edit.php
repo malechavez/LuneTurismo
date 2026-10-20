@@ -7,7 +7,7 @@
     <?= $this->section('content') ?>
         <h1 class=title>Editando alojamiento <?= $accommodation['id'] ?></h1>
         <div class="formulario">
-            <form method="post" action="<?= site_url('/accommodations/update/') . $accommodation['id'] ?>" >
+            <form method="post" action="<?= site_url('admin/accommodations/update/') . $accommodation['id'] ?>" >
                 
                 <div class="form">
                     <label class="form-label">Nombre:</label>

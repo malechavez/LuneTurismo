@@ -91,7 +91,7 @@ class ReservationsAccommodations extends BaseController
 
         $db->transCommit();
 
-        return redirect()->to('/client')
+        return redirect()->to('client/home')
             ->with('success', '¡Tu reserva se realizó correctamente!');
     }
 }

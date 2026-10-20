@@ -17,7 +17,7 @@
             <div class="container-nav">
                 <ul class="navbar-nav">
                     <li>
-                        <a href="<?= site_url('client') ?>">Inicio</a>
+                        <a href="<?= site_url('client/home') ?>">Inicio</a>
                     </li>
                     <li>
                         <a href="<?= site_url('client/activities') ?>">Actividades</a>
