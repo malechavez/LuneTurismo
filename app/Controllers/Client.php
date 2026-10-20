@@ -54,9 +54,24 @@ class Client extends BaseController
                 );
             }
         }
-        
+
+
         //Recorre la disponibilidad de alojamientos para obtener el stock mínimo por alojamiento
-        foreach ($activityAvailability as $disponibilidad) {
+        foreach ($accommodationAvailability as $disponibilidad) {
+            $accommodationId = $disponibilidad['accommodation_id'];
+
+            if (!isset($disponibilidadPorAlojamiento[$accommodationId])) {
+                $disponibilidadPorAlojamiento[$accommodationId] = [
+                    'stock_minimo_alojamiento' => (int) $disponibilidad['stock']
+                ];
+            } else {
+                $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] = min(
+                    $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'],
+                    (int) $disponibilidad['stock']
+                );
+            }
+        }
+        /*foreach ($activityAvailability as $disponibilidad) {
             $activityId = $disponibilidad['activity_id'];
 
             if (!isset($disponibilidadPorActividad[$activityId])) {
@@ -69,14 +84,14 @@ class Client extends BaseController
                     (int) $disponibilidad['stock']
                 );
             }
-        }
+        }*/
 
         $data['disponibilidadPorActividad'] = $disponibilidadPorActividad;
         $data['disponibilidadPorAlojamiento'] = $disponibilidadPorAlojamiento;
         return view('Client/inicio', $data);
     }
 
-    
+
     public function activities()
     {
         $data['activities'] = $this->activitiesModel->getActivities();
@@ -107,35 +122,35 @@ class Client extends BaseController
 
 
 
-public function accommodations()
-{
-    $data['accommodations'] = $this->accommodationsModel->getAccommodations();
+    public function accommodations()
+    {
+        $data['accommodations'] = $this->accommodationsModel->getAccommodations();
 
-    $accommodationAvailability = $this->accommodationAvailabilityModel->getAccommodationAvailability();
+        $accommodationAvailability = $this->accommodationAvailabilityModel->getAccommodationAvailability();
 
-    $disponibilidadPorAlojamiento = [];
+        $disponibilidadPorAlojamiento = [];
 
-    foreach ($accommodationAvailability as $disponibilidad) {
-        $accommodationId = $disponibilidad['accommodation_id'];
-        $stock = (int) $disponibilidad['stock'];
+        foreach ($accommodationAvailability as $disponibilidad) {
+            $accommodationId = $disponibilidad['accommodation_id'];
+            $stock = (int) $disponibilidad['stock'];
 
-        if ($disponibilidad['fecha'] >= date('Y-m-d') && $stock > 0) {
-            if (!isset($disponibilidadPorAlojamiento[$accommodationId])) {
-                $disponibilidadPorAlojamiento[$accommodationId] = [
-                    'stock_minimo_alojamiento' => $stock
-                ];
-            } else {
-                $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] = min(
-                    $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'],
-                    $stock
-                );
+            if ($disponibilidad['fecha'] >= date('Y-m-d') && $stock > 0) {
+                if (!isset($disponibilidadPorAlojamiento[$accommodationId])) {
+                    $disponibilidadPorAlojamiento[$accommodationId] = [
+                        'stock_minimo_alojamiento' => $stock
+                    ];
+                } else {
+                    $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] = min(
+                        $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'],
+                        $stock
+                    );
+                }
             }
         }
-    }
-    $data['disponibilidadPorAlojamiento'] = $disponibilidadPorAlojamiento;
+        $data['disponibilidadPorAlojamiento'] = $disponibilidadPorAlojamiento;
 
-    return view('Client/accommodations', $data);
-}
+        return view('Client/accommodations', $data);
+    }
 
 
     public function myReservations()
