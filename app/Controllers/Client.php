@@ -59,37 +59,26 @@ class Client extends BaseController
         //Recorre la disponibilidad de alojamientos para obtener el stock mínimo por alojamiento
         foreach ($accommodationAvailability as $disponibilidad) {
             $accommodationId = $disponibilidad['accommodation_id'];
+            $stock = (int) $disponibilidad['stock'];
 
-            if (!isset($disponibilidadPorAlojamiento[$accommodationId])) {
-                $disponibilidadPorAlojamiento[$accommodationId] = [
-                    'stock_minimo_alojamiento' => (int) $disponibilidad['stock']
-                ];
-            } else {
-                $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] = min(
-                    $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'],
-                    (int) $disponibilidad['stock']
-                );
+            if ($disponibilidad['fecha'] >= date('Y-m-d') && $stock > 0) {
+                if (!isset($disponibilidadPorAlojamiento[$accommodationId])) {
+                    $disponibilidadPorAlojamiento[$accommodationId] = [
+                        'stock_minimo_alojamiento' => $stock
+                    ];
+                } else {
+                    $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] = min(
+                        $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'],
+                        $stock
+                    );
+                }
             }
         }
-        /*foreach ($activityAvailability as $disponibilidad) {
-            $activityId = $disponibilidad['activity_id'];
-
-            if (!isset($disponibilidadPorActividad[$activityId])) {
-                $disponibilidadPorActividad[$activityId] = [
-                    'stock_minimo_actividad' => (int) $disponibilidad['stock']
-                ];
-            } else {
-                $disponibilidadPorActividad[$activityId]['stock_minimo_actividad'] = min(
-                    $disponibilidadPorActividad[$activityId]['stock_minimo_actividad'],
-                    (int) $disponibilidad['stock']
-                );
-            }
-        }*/
 
         $data['disponibilidadPorActividad'] = $disponibilidadPorActividad;
         $data['disponibilidadPorAlojamiento'] = $disponibilidadPorAlojamiento;
         return view('Client/inicio', $data);
-    }
+}
 
 
     public function activities()

@@ -51,26 +51,29 @@ class NoUser extends BaseController
                 );
             }
         }
-        
+
+
         //Recorre la disponibilidad de alojamientos para obtener el stock mínimo por alojamiento
         foreach ($accommodationAvailability as $disponibilidad) {
             $accommodationId = $disponibilidad['accommodation_id'];
+            $stock = (int) $disponibilidad['stock'];
 
-            if (!isset($disponibilidadPorAlojamiento[$accommodationId])) {
-                $disponibilidadPorAlojamiento[$accommodationId] = [
-                    'stock_minimo_alojamiento' => (int) $disponibilidad['stock']
-                ];
-            } else {
-                $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] = min(
-                    $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'],
-                    (int) $disponibilidad['stock']
-                );
+            if ($disponibilidad['fecha'] >= date('Y-m-d') && $stock > 0) {
+                if (!isset($disponibilidadPorAlojamiento[$accommodationId])) {
+                    $disponibilidadPorAlojamiento[$accommodationId] = [
+                        'stock_minimo_alojamiento' => $stock
+                    ];
+                } else {
+                    $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'] = min(
+                        $disponibilidadPorAlojamiento[$accommodationId]['stock_minimo_alojamiento'],
+                        $stock
+                    );
+                }
             }
         }
 
         $data['disponibilidadPorActividad'] = $disponibilidadPorActividad;
         $data['disponibilidadPorAlojamiento'] = $disponibilidadPorAlojamiento;
-
-        return view('NoUser/inicioNoUser', $data);
+        return view('Client/inicio', $data);
     }
 }

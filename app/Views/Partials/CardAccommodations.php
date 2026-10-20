@@ -6,7 +6,7 @@
     <div class="card-body">
         <h4 class="card-title"><?= esc($accommodation['name']) ?></h4>
         <!-- Cartel de aviso de cupos  -->
-        <?php if ($stockMinimo <= 10 && $stockMinimo > 0): ?>
+        <?php if ($stockMinimo <= 5 && $stockMinimo > 0): ?>
             <div class="bg-warning rounded-3 border border-black border-2" style="width: 45%;">
                 <div class="p-1">
                     <small class="fw-medium">Pocos cupos disponibles</small>
@@ -17,7 +17,7 @@
         <?php if ($stockMinimo == 0): ?>
             <div class="bg-danger rounded-3 border border-black border-2" style="width: 45%;">
                 <div class="p-1">
-                    <small class="fw-medium">Sin cupos disponibles</small>
+                    <small class="fw-medium">Sin cupos disponibles para algunos dias</small>
                 </div>
             </div>
         <?php endif; ?>

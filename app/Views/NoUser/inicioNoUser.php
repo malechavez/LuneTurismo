@@ -62,8 +62,8 @@
                     <div class="col-12 col-md-4">
                         <?= view('Partials/CardAccommodations', [
                             'accommodation' => $u,
-                            'logueado' => false,
-                            'stockMinimo' => $stockMinimo
+                            'stockMinimo' => $stockMinimo,
+                            'logueado' => false
                         ]) ?>
                     </div>
                     <?php endif; ?>
