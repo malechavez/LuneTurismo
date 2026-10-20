@@ -74,6 +74,6 @@ class NoUser extends BaseController
 
         $data['disponibilidadPorActividad'] = $disponibilidadPorActividad;
         $data['disponibilidadPorAlojamiento'] = $disponibilidadPorAlojamiento;
-        return view('Client/inicio', $data);
+        return view('NoUser/inicioNoUser', $data);
     }
 }
