@@ -34,7 +34,7 @@
                             <?= view('Partials/CardActivity', [
                                 'activity' => $u,
                                 'stockMinimo' => $stockMinimo,
-                                'logueado' => true
+                                'logueado' => false
                             ]) ?>
                         </div>
                     <?php endif; ?>
